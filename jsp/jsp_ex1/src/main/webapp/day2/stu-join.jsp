@@ -35,8 +35,18 @@
 </body>
 </html>
 <script>
+	let checkFlg = false;
+	
+	
+
 	function fnStuInsert() {
 		let stu = document.stu;
+		
+		if(!checkFlg) {
+			alert("학번 중복체크하세요.");
+			return;
+		}
+		
 		if(stu.stuNo.value.length != 8) {
 			alert("학번은 8글자의 숫자입니다.");
 			return;
@@ -46,7 +56,7 @@
 			alert("모든 값을 채워주세요.");
 			return;
 		}
-		
+		stu.stuNo.disabled = false;
 		stu.submit();
 	}
 	
@@ -64,8 +74,8 @@
 	function getReturn(flg) {
 		if(flg == "N") {
 			let obj = document.stu.stuNo;
+			checkFlg = true;
 			obj.disabled = true;
 		}		
-		
 	}
 </script>

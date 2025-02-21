@@ -38,6 +38,7 @@
 <script>
 	function fnBack() {
 		window.opener.getReturn(document.check.flg.value);
+		window.close();
 	}
 
 	
