@@ -52,7 +52,20 @@
 	
 	function fnCheck() {
 		let stu = document.stu;
+		
+		if(stu.stuNo.value.length != 8) {
+			alert("학번은 8글자의 숫자입니다.");
+			return;
+		}
 		window.open("id-check.jsp?stuNo="+stu.stuNo.value, 
 				"check", "width=300, height=300");
+	}
+	
+	function getReturn(flg) {
+		if(flg == "N") {
+			let obj = document.stu.stuNo;
+			obj.disabled = true;
+		}		
+		
 	}
 </script>
