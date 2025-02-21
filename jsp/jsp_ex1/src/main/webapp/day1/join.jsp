@@ -54,22 +54,42 @@
 	function fnJoin() {
 		let join = document.join;
 		
+		
+		
+		if(join.id.value == "") {
+			alert("아이디를 입력하세요.");
+			join.id.focus();
+			return;
+		}
+		
 		if(join.id.value.length < 6) {
 			alert("아이디는 6글자 이상이여야합니다.");
+			join.id.focus();
 			return;
 		}
+		
+		if(join.pwd.value == "") {
+			alert("비밀번호를 입력하세요");
+			join.pwd.focus();
+			return;
+		}
+		
 		if(join.pwd.value.length < 6) {
 			alert("비밀번호는 6글자 이상이여야합니다.");
-			return;
-		}
-		if(join.pwd.value != join.pwd2.value) {
-			alert("비밀번호가 일치하지않습니다.");
+			join.pwd.focus();
 			return;
 		}
 		if(!join.pwd.value.match(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/g)) {
 			alert("특수문자 필요");
+			join.pwd.focus();
 			return;
 		}
+		if(join.pwd.value != join.pwd2.value) {
+			alert("비밀번호가 일치하지않습니다.");
+			join.pwd.focus();
+			return;
+		}
+		
 		join.submit();
 	}
 </script>
